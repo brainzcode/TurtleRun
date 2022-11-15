@@ -1,34 +1,19 @@
 from turtle import Turtle, Screen
+from random import choice
 
-t = Turtle()
-s = Screen()
+sam = Turtle(shape="turtle")
+screen = Screen()
+screen.setup(width=500, height=400)
+bet = screen.textinput(title="Make your bet", prompt="Which turtle will win the race? Enter a color: ")
+colors = ["red", "blue", "green", "yellow", "orange", "purple"]
+y_positions = [-70, -40, -10, 20, 50, 80]
+print(bet)
 
-
-def move_forward():
-    t.forward(10)
-
-
-def move_backward():
-    t.backward(10)
-
-
-def move_counter_clock():
-    t.left(10)
-
-
-def move_clock_wise():
-    t.right(10)
+for turtle_index in range(0, 6):
+    sam = Turtle(shape="turtle")
+    sam.penup()
+    sam.goto(x=-230, y=y_positions[turtle_index])
 
 
-def clear():
-    t.reset()
 
-
-s.listen()
-s.onkey(key="w", fun=move_forward)
-s.onkey(key="s", fun=move_backward)
-s.onkey(key="a", fun=move_counter_clock)
-s.onkey(key="d", fun=move_clock_wise)
-s.onkey(key="c", fun=clear)
-
-s.exitonclick()
+screen.exitonclick()
